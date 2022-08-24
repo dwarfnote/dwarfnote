@@ -11,7 +11,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "desktop:dev": "pnpm --filter @dn/desktop -- tauri dev",
+    "web:dev": "pnpm --filter @dn/web -- dev",
+    "landing:dev": "pnpm --filter @dn/landing -- dev"
   },
   "devDependencies": {
     "prettier": "latest",
