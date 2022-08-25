@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dn/ui": "workspace:*",
+    "@tanstack/react-location": "^3.7.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

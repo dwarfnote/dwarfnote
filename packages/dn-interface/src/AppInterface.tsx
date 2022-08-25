@@ -1,7 +1,11 @@
-import React from "react";
+import AppRouter from "./AppRouter";
 
 const AppInterface = () => {
-  return <div>AppInterface2</div>;
+  return (
+    <>
+      <AppRouter />
+    </>
+  );
 };
 
 export default AppInterface;

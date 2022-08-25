@@ -6,6 +6,7 @@
   "main": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
+    "./styles": "./styles/index.ts",
     "./components/*": "./src/components/*"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "@dn/config": "workspace:*",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "sass": "^1.54.5",
     "typescript": "^4.7.4"
   }
 }

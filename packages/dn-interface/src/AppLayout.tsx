@@ -1,10 +1,11 @@
-import React from "react";
+import { Outlet } from "@tanstack/react-location";
 import Sidebar from "./components/sidebar/Sidebar";
 
 const AppLayout = () => {
   return (
-    <div>
+    <div className="app">
       <Sidebar />
+      <Outlet />
     </div>
   );
 };
