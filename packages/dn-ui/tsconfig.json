@@ -1,0 +1,4 @@
+{
+  "extends": "@dn/config/react.tsconfig.json",
+  "include": ["src", "styles"]
+}
