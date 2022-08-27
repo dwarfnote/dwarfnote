@@ -1,5 +1,5 @@
 import {
-  createMemoryHistory,
+  createBrowserHistory,
   DefaultGenerics,
   Navigate,
   ReactLocation,
@@ -40,7 +40,7 @@ const routes: Route<DefaultGenerics>[] = [
   },
 ];
 
-const history = createMemoryHistory();
+const history = createBrowserHistory();
 
 const location = new ReactLocation({
   history,

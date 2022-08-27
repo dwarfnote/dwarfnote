@@ -1,6 +1,13 @@
-import { Link } from "@tanstack/react-location";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { NoteIcon, CalendarIcon, MapIcon, TrashIcon } from "../icons";
+import {
+  SidebarItemBadge,
+  SidebarItemIcon,
+  SidebarItemLabel,
+  SidebarItemLink,
+  SidebarList,
+  SidebarSection,
+} from "./sidebar.styles";
 
 const PrimaryList = () => {
   const primaryLinks = useMemo(
@@ -31,29 +38,21 @@ const PrimaryList = () => {
     []
   );
   return (
-    <div className="sidebar__section">
-      <ul className="link-list">
+    <SidebarSection>
+      <SidebarList>
         {primaryLinks.map((item) => (
-          <li key={item.to} className="link-list__item link-item">
-            <Link to={item.to} className="link-item__link">
-              {({ isActive }) => (
-                <div
-                  className={`link-item__wrapper ${
-                    isActive ? "link-item__wrapper--active" : ""
-                  } `}
-                >
-                  <span className="link-item__icon">{item.icon}</span>
-                  <span className="link-item__label">{item.label}</span>
-                  {!!item.badge && (
-                    <span className="link-item__badge">{item.badge}</span>
-                  )}
-                </div>
+          <li key={item.to}>
+            <SidebarItemLink to={item.to}>
+              <SidebarItemIcon>{item.icon}</SidebarItemIcon>
+              <SidebarItemLabel>{item.label}</SidebarItemLabel>
+              {!!item.badge && (
+                <SidebarItemBadge>{item.badge}</SidebarItemBadge>
               )}
-            </Link>
+            </SidebarItemLink>
           </li>
         ))}
-      </ul>
-    </div>
+      </SidebarList>
+    </SidebarSection>
   );
 };
 

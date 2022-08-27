@@ -1,6 +1,24 @@
-import { Link } from "@tanstack/react-location";
 import { useMemo } from "react";
+import styled, { css } from "styled-components";
+import { Theme } from "../../theme";
 import { AddIcon } from "../icons";
+import {
+  SidebarItemBadge,
+  SidebarItemIcon,
+  SidebarItemLabel,
+  SidebarItemLink,
+  SidebarList,
+  SidebarSection,
+  SidebarSectionHeader,
+  SidebarSectionHeaderButton,
+  SidebarSectionHeaderTitle,
+} from "./sidebar.styles";
+
+const TagCircle = styled.span`
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.75em;
+`;
 
 const TagsList = () => {
   const tags = useMemo(
@@ -28,46 +46,29 @@ const TagsList = () => {
   );
 
   return (
-    <div className="sidebar__section">
-      <div className="sidebar__section__header">
-        <p className="sidebar__section__header__title">Tags</p>
-        <div className="sidebar__section__header__actions">
-          <button className="icon-btn icon-btn--small">
-            <AddIcon />
-          </button>
-        </div>
-      </div>
-      <ul className="link-list">
+    <SidebarSection>
+      <SidebarSectionHeader>
+        <SidebarSectionHeaderTitle>Tags</SidebarSectionHeaderTitle>
+        <SidebarSectionHeaderButton>
+          <AddIcon />
+        </SidebarSectionHeaderButton>
+      </SidebarSectionHeader>
+      <SidebarList>
         {tags.map((item) => (
-          <li key={item.to} className="link-list__item link-item">
-            <Link to={`tag/${item.to}`} className="link-item__link">
-              {({ isActive }) => (
-                <div
-                  className={`link-item__wrapper ${
-                    isActive ? "link-item__wrapper--active" : ""
-                  } `}
-                >
-                  <span className="link-item__icon">
-                    <span
-                      style={{
-                        width: 12,
-                        height: 12,
-                        borderRadius: 100,
-                        backgroundColor: item.color,
-                      }}
-                    ></span>
-                  </span>
-                  <span className="link-item__label">{item.label}</span>
-                  {!!item.badge && (
-                    <span className="link-item__badge">{item.badge}</span>
-                  )}
-                </div>
+          <li key={item.to}>
+            <SidebarItemLink to={`tag/${item.to}`}>
+              <SidebarItemIcon>
+                <TagCircle style={{ backgroundColor: item.color }} />
+              </SidebarItemIcon>
+              <SidebarItemLabel>{item.label}</SidebarItemLabel>
+              {!!item.badge && (
+                <SidebarItemBadge>{item.badge}</SidebarItemBadge>
               )}
-            </Link>
+            </SidebarItemLink>
           </li>
         ))}
-      </ul>
-    </div>
+      </SidebarList>
+    </SidebarSection>
   );
 };
 

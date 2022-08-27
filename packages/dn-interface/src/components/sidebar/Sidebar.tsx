@@ -1,39 +1,30 @@
-import { Link } from "@tanstack/react-location";
-import { useMemo, useState } from "react";
-import {
-  AddIcon,
-  RecentIcon,
-  CalendarIcon,
-  ExpandMoreIcon,
-  MapIcon,
-  NoteIcon,
-  SearchIcon,
-  StarIcon,
-  TrashIcon,
-  NotebookIcon,
-} from "../icons";
+import { useState } from "react";
 import NotebooksList from "./NotebooksList";
 import PrimaryList from "./PrimaryList";
 import SearchButton from "./SearchButton";
+import { SidebarBody, SidebarWrapper } from "./sidebar.styles";
+import SidebarFooter from "./SidebarFooter";
+import SidebarHeader from "./SidebarHeader";
 import TagsList from "./TagsList";
 
 const Sidebar = () => {
-  const [width, setWidth] = useState(220);
+  const [width, setWidth] = useState(240);
 
   return (
-    <div
-      className="sidebar"
+    <SidebarWrapper
       style={{
         width,
       }}
     >
-      <div className="sidebar__body">
+      <SidebarHeader />
+      <SidebarBody>
         <SearchButton />
         <PrimaryList />
         <NotebooksList />
         <TagsList />
-      </div>
-    </div>
+      </SidebarBody>
+      <SidebarFooter />
+    </SidebarWrapper>
   );
 };
 
